@@ -1,0 +1,9 @@
+# folders
+bin
+target
+.settings
+
+# files
+.classpath
+.project
+.factorypath
