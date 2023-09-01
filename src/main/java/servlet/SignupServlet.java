@@ -43,7 +43,7 @@ public class SignupServlet extends HttpServlet {
 		
 		System.out.println("회원가입");
 		
-		ResponseUtil.response(response).of(400).body("회원가입 실패");
+		ResponseUtil.response(response).of(200).body("회원가입 성공");
 
 	}
 
