@@ -27,8 +27,6 @@ public class signinServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, Object> signinUser = JsonParseUtil.toMap(request.getInputStream());
 		Map<String, String> responseData = new HashMap<>();
-		
-		System.out.println(signinUser);
 	
 		for(User user : UserData.userList) {
 			if(Objects.equals(user.getUsername(), signinUser.get("username")) && Objects.equals(user.getPassword(), signinUser.get("password"))) {
@@ -40,7 +38,7 @@ public class signinServlet extends HttpServlet {
 			}
 		}
 		
-		ResponseUtil.response(response).of(200).body(responseData);
+		ResponseUtil.response(response).of(200).body(JsonParseUtil.toJson(responseData));
 	}
 
 }

@@ -37,7 +37,9 @@ public class SecurityFilter extends HttpFilter implements Filter {
 		
 		String token = req.getHeader("Authorization");
 		
-		if(!SecurityContextHolder.isAuthenticated(token)) {			
+		System.out.println(token);
+		
+		if(!req.getMethod().equalsIgnoreCase("options") && !SecurityContextHolder.isAuthenticated(token)) {			
 			ResponseUtil.response(resp).of(401).body("인증 실패");
 			return;
 		}
